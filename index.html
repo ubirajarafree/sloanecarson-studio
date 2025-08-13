@@ -1,49 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SloaneCarson Studio</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SloaneCarson Studio</title>
 
-  <!-- Tailwind CSS via CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Vue 2 via CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <!-- Vue 2 via CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 
-  <!-- Optional: Tailwind config for custom colors -->
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            violetPastel: '#d8b4fe',
-            violetDark: '#7c3aed',
-          },
-        },
-      },
-    };
-  </script>
+    <!-- Optional: Tailwind config for custom colors -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        violetPastel: '#d8b4fe',
+                        violetDark: '#7c3aed',
+                    },
+                },
+            },
+        };
+    </script>
 </head>
+
 <body class="bg-white text-gray-800 font-sans">
 
-  <!-- Vue App Root -->
-  <div id="app">
-    <!-- Topbar Branding -->
-    <header class="fixed top-0 left-0 w-full z-50 bg-gradient-to-r from-violetPastel to-violetDark text-white shadow-md">
-        <div class="max-w-7xl mx-auto px-4 py-2 flex justify-center items-center">
-            <h1 class="text-lg md:text-xl font-serif font-semibold tracking-wide">
-                <span class="text-white">Under</span> <span class="text-white font-bold">SloaneCarson.com</span>
-            </h1>
-        </div>
-    </header>
+    <!-- Vue App Root -->
+    <div id="app">
+        <!-- Topbar Branding -->
+        <header
+            class="fixed top-0 left-0 w-full z-50 bg-gradient-to-r from-violetPastel to-violetDark text-white shadow-md">
+            <div class="max-w-7xl mx-auto px-4 py-2 flex justify-center items-center">
+                <h1 class="text-lg md:text-xl font-serif font-semibold tracking-wide">
+                    <span class="text-white">Under</span> <span class="text-white font-bold">SloaneCarson.com</span>
+                </h1>
+            </div>
+        </header>
 
-    <!-- Spacer to offset fixed header -->
-    <div class="h-16"></div>
+        <!-- Spacer to offset fixed header -->
+        <div class="h-16"></div>
 
-  </div>
+        <!-- Hero Section -->
+        <section class="min-h-screen flex flex-col justify-center items-center text-center px-6 bg-white">
+            <h2 class="text-4xl md:text-6xl font-bold leading-tight mb-4">
+                <span class="text-gray-900">Creative Studio</span>
+                <span class="bg-gradient-to-r from-violetPastel to-violetDark bg-clip-text text-transparent">
+                    for the Future
+                </span>
+            </h2>
+            <p class="text-lg md:text-xl text-gray-600 max-w-2xl mb-6">
+                We craft immersive digital experiences through design, code, and intelligent automation.
+            </p>
+            <button onclick="document.getElementById('services').scrollIntoView({ behavior: 'smooth' })"
+                class="bg-violetDark text-white px-6 py-3 rounded-full hover:bg-violetPastel hover:text-violetDark transition duration-300">
+                Explore Our Services
+            </button>
+        </section>
 
-  <!-- Optional: GSAP for animations -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    </div>
+
+    <!-- Optional: GSAP for animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 </body>
+
 </html>
