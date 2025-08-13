@@ -4,10 +4,19 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="SloaneCarson Studio: We create immersive digital experiences through design, coding, and intelligent automation. Discover our services.">
     <title>SloaneCarson Studio</title>
 
     <!-- Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- Vue 2 via CDN -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
@@ -25,73 +34,139 @@
             },
         };
     </script>
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="assets/styles.css" />
+    <style>
+        * { font-family: 'Inter', sans-serif; }
+        .brand-font { font-family: 'P22Mackinac', serif; }
+
+        .hover-animated-card {
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .hover-animated-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, #fbcfe8, #d8b4fe, #c4b5fd, #d8b4fe, #fbcfe8);
+            background-size: 400% 400%;
+            z-index: 0;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .hover-animated-card:hover::before {
+            opacity: 1;
+            animation: gradientLoop 2s linear infinite;
+        }
+
+        @keyframes gradientLoop {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .hover-animated-card > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hover-animated-card:hover .icon-wrapper {
+            background-color: white;
+        }
+
+        .hover-animated-card:hover .icon-wrapper i {
+            color: #7c3aed; /* violetDark */
+        }
+    </style>
+
 </head>
 
 <body class="bg-white text-gray-800 font-sans">
 
     <!-- Vue App Root -->
     <div id="app">
-        <!-- Topbar Branding -->
-        <header
-            class="fixed top-0 left-0 w-full z-50 bg-gradient-to-r from-violetPastel to-violetDark text-white shadow-md">
-            <div class="max-w-7xl mx-auto px-4 py-2 flex justify-center items-center">
-                <h1 class="text-lg md:text-xl font-serif font-semibold tracking-wide">
-                    <span class="text-white">Under</span> <span class="text-white font-bold">SloaneCarson.com</span>
-                </h1>
-            </div>
-        </header>
 
-        <!-- Navigation Menu -->
-        <nav class="bg-white shadow-md fixed top-16 left-0 w-full z-40">
-            <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-                <div class="text-violetDark font-bold text-lg">SloaneCarson Studio</div>
-        
-                <!-- Hamburger Button -->
-                <button @click="menuOpen = !menuOpen" class="md:hidden text-violetDark focus:outline-none">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+        <!-- Topbar -->
+        <nav id="header"
+            class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-gradient-to-r from-pink-200 via-violet-300 to-purple-400 text-white shadow-lg">
+            <div id="branding"
+                class="max-w-7xl mx-auto px-4 py-6 flex justify-between items-center transition-all duration-300">
+                <!-- Logo -->
+                <div id="brand"
+                    class="brand-font text-3xl md:text-2xl bg-clip-text text-transparent bg-gradient-to-r from-pink-400 via-violet-500 to-purple-600">
+                    SloaneCarson.com
+                </div>
+
+                <!-- Desktop Menu -->
+                <ul class="hidden md:flex space-x-6 font-medium transition-colors duration-300">
+                    <!-- [MODIFICADO] Adicionado o :class binding -->
+                    <li><a href="#hero" class="nav-link" :class="navLinkClass">Home</a></li>
+                    <li><a href="#services" class="nav-link" :class="navLinkClass">Services</a></li>
+                    <li><a href="#contact" class="nav-link" :class="navLinkClass">Contact</a></li>
+                </ul>
+
+                <!-- Mobile Menu Button -->
+                <button @click="toggleMenu" class="nav-link md:hidden focus:outline-none" :class="navLinkClass">
+                    <svg id="hamburger" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 transform scale-150" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        <path v-if="!menuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16" />
+                        <path v-else stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12" />
                     </svg>
                 </button>
-        
-                <!-- Menu Links -->
-                <ul class="hidden md:flex space-x-6 text-gray-700 font-medium">
-                    <li><a href="#" class="hover:text-violetDark">Home</a></li>
-                    <li><a href="#services" class="hover:text-violetDark">Services</a></li>
-                    <li><a href="#contact" class="hover:text-violetDark">Contact</a></li>
-                    <li><a href="/primebiome" target="_blank" class="hover:text-violetDark">PrimeBiome</a></li>
-                </ul>
             </div>
-        
+
             <!-- Mobile Menu -->
-            <div v-if="menuOpen" class="md:hidden px-4 pb-4">
-                <ul class="space-y-2 text-gray-700 font-medium">
-                    <li><a href="#" class="block hover:text-violetDark">Home</a></li>
-                    <li><a href="#services" class="block hover:text-violetDark">Services</a></li>
-                    <li><a href="#contact" class="block hover:text-violetDark">Contact</a></li>
-                    <li><a href="/primebiome" target="_blank" class="block hover:text-violetDark">PrimeBiome</a></li>
+            <div v-if="menuOpen" class="md:hidden px-4 pb-4 mobile-menu">
+                <ul class="space-y-2 font-medium">
+                    <!-- [MODIFICADO] Links do menu mobile também usam a classe dinâmica -->
+                    <li><a href="#hero" class="block nav-link" :class="navLinkClass">Home</a></li>
+                    <li><a href="#services" class="block nav-link" :class="navLinkClass">Services</a></li>
+                    <li><a href="#contact" class="block nav-link" :class="navLinkClass">Contact</a></li>
                 </ul>
             </div>
         </nav>
 
-        <!-- Spacer to offset fixed header -->
-        <div class="h-16"></div>
-
         <!-- Hero Section -->
-        <section class="min-h-screen flex flex-col justify-center items-center text-center px-6 bg-white">
-            <h2 class="text-4xl md:text-6xl font-bold leading-tight mb-4">
-                <span class="text-gray-900">Creative Studio</span>
-                <span class="bg-gradient-to-r from-violetPastel to-violetDark bg-clip-text text-transparent">
-                    for the Future
-                </span>
-            </h2>
-            <p class="text-lg md:text-xl text-gray-600 max-w-2xl mb-6">
-                We craft immersive digital experiences through design, code, and intelligent automation.
-            </p>
-            <button onclick="document.getElementById('services').scrollIntoView({ behavior: 'smooth' })"
-                class="bg-violetDark text-white px-6 py-3 rounded-full hover:bg-violetPastel hover:text-violetDark transition duration-300">
-                Explore Our Services
-            </button>
+        <section id="hero"
+            class="relative min-h-screen flex flex-col justify-center items-center text-center px-6 bg-white overflow-hidden">
+            <!-- Background Gradient -->
+            <div class="absolute inset-0 bg-gradient-to-br from-pink-50 via-violet-50 to-purple-50"></div>
+
+            <!-- Animated Gradient Blobs -->
+            <div class="absolute inset-0 overflow-hidden">
+                <div
+                    class="absolute top-1/4 left-1/4 w-64 h-64 bg-gradient-to-br from-pink-300/20 to-violet-300/20 rounded-full blur-3xl animate-pulse">
+                </div>
+                <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-br from-purple-300/20 to-pink-300/20 rounded-full blur-3xl animate-pulse"
+                    style="animation-delay: 1s;"></div>
+            </div>
+
+            <!-- Content -->
+            <div class="relative z-10 flex flex-col items-center">
+                <h2 class="text-4xl md:text-6xl font-bold leading-tight mb-4">
+                    <span class="text-gray-900">Creative Studio</span>
+                    <span
+                        class="bg-gradient-to-r from-pink-400 via-violet-400 to-purple-500 bg-clip-text text-transparent">for
+                        the Future</span>
+                </h2>
+                <p class="text-lg md:text-xl text-gray-600 max-w-2xl mb-6">
+                    We craft immersive digital experiences through design, code, and intelligent automation.
+                </p>
+                <button onclick="document.getElementById('services').scrollIntoView({ behavior: 'smooth' })"
+                    class="flex items-center gap-2 bg-violetDark text-white px-6 py-3 rounded-full hover:bg-pink-200 hover:text-violetDark transition duration-300">
+                    Explore Our Services
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 animate-bounce" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+            </div>
         </section>
 
         <!-- Services Section -->
@@ -99,63 +174,178 @@
             <div class="max-w-7xl mx-auto px-6">
                 <h3 class="text-3xl md:text-4xl font-bold text-center mb-12">
                     <span class="text-gray-800">Our</span>
-                    <span class="bg-gradient-to-r from-violetPastel to-violetDark bg-clip-text text-transparent">Services</span>
+                    <span class="bg-gradient-to-r from-pink-300 to-violet-500 bg-clip-text text-transparent">Services</span>
                 </h3>
-        
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Card 1 -->
-                    <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition duration-300">
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Card Template -->
+                    <div
+                        class="hover-animated-card flex flex-col bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-300 h-full">
+                        <div class="icon-wrapper transition-colors duration-1000 flex items-center justify-center w-14 h-14 mb-4 bg-pink-100 rounded-lg">
+                            <i class="fas transition-colors duration-1000 fa-code text-violetDark text-xl"></i>
+                        </div>
                         <h4 class="text-xl font-semibold mb-2 text-violetDark">Web Development</h4>
-                        <p class="text-gray-600">Modern websites using HTML, CSS, JS, and Vue2 via CDN.</p>
+                        <p class="text-gray-600 mb-4">
+                            We craft responsive websites using modern stacks like HTML, CSS, JavaScript, and Vue2 via CDN. Our
+                            focus is on performance, accessibility, and clean design.
+                        </p>
+                        <a href="#" class="mt-auto text-violetDark font-medium hover:underline hidden">Learn more →</a>
                     </div>
-        
-                    <!-- Card 2 -->
-                    <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition duration-300">
+
+                    <div
+                        class="hover-animated-card flex flex-col bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-300 h-full">
+                        <div class="icon-wrapper transition-colors duration-1000 flex items-center justify-center w-14 h-14 mb-4 bg-pink-100 rounded-lg">
+                            <i class="fas transition-colors duration-1000 fa-mobile-alt text-violetDark text-xl"></i>
+                        </div>
                         <h4 class="text-xl font-semibold mb-2 text-violetDark">Flutter Apps</h4>
-                        <p class="text-gray-600">Cross-platform mobile apps with beautiful UI and smooth performance.</p>
+                        <p class="text-gray-600 mb-4">
+                            Build stunning mobile apps with Flutter. We deliver cross-platform experiences that feel native,
+                            with smooth animations and scalable architecture.
+                        </p>
+                        <a href="#" class="mt-auto text-violetDark font-medium hover:underline hidden">Learn more →</a>
                     </div>
-        
-                    <!-- Card 3 -->
-                    <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition duration-300">
+
+                    <div
+                        class="hover-animated-card flex flex-col bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-300 h-full">
+                        <div class="icon-wrapper transition-colors duration-1000 flex items-center justify-center w-14 h-14 mb-4 bg-pink-100 rounded-lg">
+                            <i class="fas transition-colors duration-1000 fa-paint-brush text-violetDark text-xl"></i>
+                        </div>
                         <h4 class="text-xl font-semibold mb-2 text-violetDark">UI/UX & Animation</h4>
-                        <p class="text-gray-600">Design systems, GSAP animations, and native CSS transitions.</p>
+                        <p class="text-gray-600 mb-4">
+                            From wireframes to motion design, we create intuitive interfaces powered by GSAP and native CSS
+                            transitions. Every detail is crafted for user delight.
+                        </p>
+                        <a href="#" class="mt-auto text-violetDark font-medium hover:underline hidden">Learn more →</a>
                     </div>
-        
-                    <!-- Card 4 -->
-                    <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition duration-300">
+
+                    <div
+                        class="hover-animated-card flex flex-col bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-300 h-full">
+                        <div class="icon-wrapper transition-colors duration-1000 flex items-center justify-center w-14 h-14 mb-4 bg-pink-100 rounded-lg">
+                            <i class="fas transition-colors duration-1000 fa-pen-nib text-violetDark text-xl"></i>
+                        </div>
                         <h4 class="text-xl font-semibold mb-2 text-violetDark">Graphic Design</h4>
-                        <p class="text-gray-600">Branding, logos, and visual storytelling for digital products.</p>
+                        <p class="text-gray-600 mb-4">
+                            We design bold visual identities, from logos to full brand systems. Our work blends storytelling
+                            with aesthetic precision for digital-first impact.
+                        </p>
+                        <a href="#" class="mt-auto text-violetDark font-medium hover:underline hidden">Learn more →</a>
                     </div>
-        
-                    <!-- Card 5 -->
-                    <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition duration-300">
+
+                    <div
+                        class="hover-animated-card flex flex-col bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-300 h-full">
+                        <div class="icon-wrapper transition-colors duration-1000 flex items-center justify-center w-14 h-14 mb-4 bg-pink-100 rounded-lg">
+                            <i class="fas transition-colors duration-1000 fa-robot text-violetDark text-xl"></i>
+                        </div>
                         <h4 class="text-xl font-semibold mb-2 text-violetDark">AI Tools</h4>
-                        <p class="text-gray-600">Integrations with Base44, Lovable, and local Ollama agents.</p>
+                        <p class="text-gray-600 mb-4">
+                            We integrate AI agents like Base44, Lovable, and Ollama to automate tasks, enhance user experience,
+                            and unlock new possibilities in your product.
+                        </p>
+                        <a href="#" class="mt-auto text-violetDark font-medium hover:underline hidden">Learn more →</a>
                     </div>
-        
-                    <!-- Card 6 -->
-                    <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition duration-300">
+
+                    <div
+                        class="hover-animated-card flex flex-col bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-300 h-full">
+                        <div class="icon-wrapper transition-colors duration-1000 flex items-center justify-center w-14 h-14 mb-4 bg-pink-100 rounded-lg">
+                            <i class="fas transition-colors duration-1000 fa-bolt text-violetDark text-xl"></i>
+                        </div>
                         <h4 class="text-xl font-semibold mb-2 text-violetDark">Automation</h4>
-                        <p class="text-gray-600">Workflows with n8n, WhatsApp agents, and private RAG systems.</p>
+                        <p class="text-gray-600 mb-4">
+                            We build smart workflows using n8n, WhatsApp agents, and private RAG systems to streamline
+                            operations and reduce manual effort across teams.
+                        </p>
+                        <a href="#" class="mt-auto text-violetDark font-medium hover:underline hidden">Learn more →</a>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="py-20 bg-white">
-            <div class="max-w-4xl mx-auto px-6 text-center">
-                <h3 class="text-3xl md:text-4xl font-bold mb-6">
-                    <span class="text-gray-800">Get in</span>
-                    <span class="bg-gradient-to-r from-violetPastel to-violetDark bg-clip-text text-transparent">Touch</span>
-                </h3>
-                <p class="text-lg text-gray-600 mb-8">
-                    Interested in working with us? Let’s build something amazing together.
-                </p>
-                <a href="mailto:hello@sloanecarson.com"
-                    class="inline-block bg-violetDark text-white px-6 py-3 rounded-full hover:bg-violetPastel hover:text-violetDark transition duration-300">
-                    Contact Us
-                </a>
+        <section id="contact" class="py-20 lg:py-32 bg-gradient-to-br from-pink-50 to-violet-50">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+                    <!-- Contact Info -->
+                    <div class="space-y-8">
+                        <div>
+                            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+                                Let's Create Something
+                                <span
+                                    class="block bg-gradient-to-r from-pink-400 via-violet-500 to-purple-600 bg-clip-text text-transparent">
+                                    Amazing Together
+                                </span>
+                            </h2>
+                            <p class="text-lg text-gray-600 leading-relaxed">
+                                Ready to bring your vision to life? Get in touch and let's discuss how we can help
+                                elevate your digital presence.
+                            </p>
+                        </div>
+
+                        <div class="space-y-6">
+                            <!-- Email -->
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-pink-200 rounded-xl flex items-center justify-center">
+                                    <i class="fas fa-envelope text-violetDark text-xl"></i>
+                                </div>
+                                <div>
+                                    <p class="font-medium text-gray-900">Email</p>
+                                    <p class="text-gray-600">hello@sloanecarson.com</p>
+                                </div>
+                            </div>
+
+                            <!-- Phone -->
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-violet-200 rounded-xl flex items-center justify-center">
+                                    <i class="fas fa-phone-alt text-violetDark text-xl"></i>
+                                </div>
+                                <div>
+                                    <p class="font-medium text-gray-900">Phone</p>
+                                    <p class="text-gray-600">+1 (555) 123-4567</p>
+                                </div>
+                            </div>
+
+                            <!-- Location -->
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-purple-200 rounded-xl flex items-center justify-center">
+                                    <i class="fas fa-map-marker-alt text-violetDark text-xl"></i>
+                                </div>
+                                <div>
+                                    <p class="font-medium text-gray-900">Location</p>
+                                    <p class="text-gray-600">San Francisco, CA</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button
+                            class="bg-gradient-to-r from-pink-400 via-violet-500 to-purple-600 text-white px-8 py-4 rounded-full text-lg font-medium hover:shadow-xl transform hover:scale-105 transition-all duration-300">
+                            Get In Touch
+                        </button>
+                    </div>
+
+                    <!-- Avatar / Branding -->
+                    <div class="flex justify-center lg:justify-end">
+                        <div class="relative">
+                            <div
+                                class="w-80 h-80 bg-gradient-to-br from-pink-400 via-violet-400 to-purple-400 rounded-full p-1">
+                                <div class="w-full h-full bg-white rounded-full flex items-center justify-center">
+                                    <div
+                                        class="w-72 h-72 bg-gradient-to-br from-gray-100 to-gray-200 rounded-full flex items-center justify-center">
+                                        <span
+                                            class="text-6xl font-bold bg-gradient-to-r from-pink-400 via-violet-500 to-purple-600 bg-clip-text text-transparent">
+                                            SC
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Floating Blobs -->
+                            <div
+                                class="absolute -top-4 -right-4 w-20 h-20 bg-gradient-to-br from-pink-300 to-violet-300 rounded-full opacity-60 animate-pulse">
+                            </div>
+                            <div class="absolute -bottom-4 -left-4 w-16 h-16 bg-gradient-to-br from-purple-300 to-pink-300 rounded-full opacity-60 animate-pulse"
+                                style="animation-delay: 1s;"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -173,14 +363,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
     <!-- Vue Instance -->
-    <script>
-        new Vue({
-            el: '#app',
-            data: {
-                menuOpen: false
-            }
-        });
-    </script>
+    <script src="assets/main.js" type="module"></script>
+
 </body>
 
 </html>
