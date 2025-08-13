@@ -41,6 +41,39 @@
             </div>
         </header>
 
+        <!-- Navigation Menu -->
+        <nav class="bg-white shadow-md fixed top-16 left-0 w-full z-40">
+            <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+                <div class="text-violetDark font-bold text-lg">SloaneCarson Studio</div>
+        
+                <!-- Hamburger Button -->
+                <button @click="menuOpen = !menuOpen" class="md:hidden text-violetDark focus:outline-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+        
+                <!-- Menu Links -->
+                <ul class="hidden md:flex space-x-6 text-gray-700 font-medium">
+                    <li><a href="#" class="hover:text-violetDark">Home</a></li>
+                    <li><a href="#services" class="hover:text-violetDark">Services</a></li>
+                    <li><a href="#contact" class="hover:text-violetDark">Contact</a></li>
+                    <li><a href="/primebiome" target="_blank" class="hover:text-violetDark">PrimeBiome</a></li>
+                </ul>
+            </div>
+        
+            <!-- Mobile Menu -->
+            <div v-if="menuOpen" class="md:hidden px-4 pb-4">
+                <ul class="space-y-2 text-gray-700 font-medium">
+                    <li><a href="#" class="block hover:text-violetDark">Home</a></li>
+                    <li><a href="#services" class="block hover:text-violetDark">Services</a></li>
+                    <li><a href="#contact" class="block hover:text-violetDark">Contact</a></li>
+                    <li><a href="/primebiome" target="_blank" class="block hover:text-violetDark">PrimeBiome</a></li>
+                </ul>
+            </div>
+        </nav>
+
         <!-- Spacer to offset fixed header -->
         <div class="h-16"></div>
 
