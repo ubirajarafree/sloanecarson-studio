@@ -11,10 +11,7 @@ new Vue({
             return this.scrollY > 50;
         },
         navLinkClass() {
-            return {
-                'text-gray-800 hover:text-pink-800': this.scrolled || this.menuOpen,
-                'text-gray-400 hover:text-pink-400': !this.scrolled && this.menuOpen
-            };
+            return this.scrolled ? 'text-gray-600 hover:text-violet-600' : 'text-gray-400 hover:text-violet-400';
         }
     },
     methods: {
@@ -35,6 +32,7 @@ new Vue({
 
             header.classList.toggle('bg-white', scrolled);
             header.classList.toggle('opacity-90', scrolled);
+            header.classList.toggle('backdrop-blur-custom', scrolled);
             header.classList.toggle('shadow-xl', scrolled);
 
             branding.classList.toggle('py-4', scrolled);

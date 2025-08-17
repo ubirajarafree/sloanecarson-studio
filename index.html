@@ -98,6 +98,11 @@
                 #a78bfa 100%
             );
         }
+
+        .backdrop-blur-custom {
+            backdrop-filter: blur(10px); /* Ajuste o valor conforme necessário */
+            -webkit-backdrop-filter: blur(10px); /* Compatibilidade com Safari */
+        }
     </style>
 
 </head>
@@ -106,20 +111,21 @@
 
     <!-- Vue App Root -->
     <div id="app">
-
+        
         <!-- Topbar -->
         <nav id="header"
-            class="fixed top-0 left-0 w-full z-50 transition-all duration-300 text-white backdrop-blur-2xl">
+            class="fixed top-0 left-0 w-full z-50 transition-all duration-300 text-white bg-white backdrop-blur-custom">
             <div id="branding"
                 class="max-w-7xl mx-auto px-4 py-6 flex justify-between items-center transition-all duration-300">
                 <!-- Logo -->
                 <div id="brand"
-                    class="brand-font text-3xl md:text-2xl bg-clip-text text-transparent bg-gradient-to-r from-pink-400 via-violet-500 to-purple-600">
+                    class="brand-font text-3xl bg-clip-text text-transparent bg-gradient-to-r from-pink-400 via-violet-500 to-purple-600">
                     SloaneCarson.com
                 </div>
 
                 <!-- Desktop Menu -->
-                <ul class="hidden md:flex space-x-6 font-medium transition-colors duration-300">
+                <ul 
+                    class="hidden md:flex space-x-6 font-medium transition-colors duration-300">
                     <!-- [MODIFICADO] Adicionado o :class binding -->
                     <li><a href="#hero" class="nav-link" :class="navLinkClass">Home</a></li>
                     <li><a href="#services" class="nav-link" :class="navLinkClass">Services</a></li>
@@ -128,7 +134,7 @@
 
                 <!-- Mobile Menu Button -->
                 <button @click="toggleMenu" class="nav-link md:hidden focus:outline-none" :class="navLinkClass">
-                    <svg id="hamburger" xmlns="http://www.w3.org/2000/svg" :class="{'text-gray-400': !scrolled, 'text-gray-800': scrolled}" class="h-6 w-6 transform scale-150" fill="none" viewBox="0 0 24 24"
+                    <svg id="hamburger" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 transform scale-150" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor">
                         <path v-if="!menuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M4 6h16M4 12h16M4 18h16" />
