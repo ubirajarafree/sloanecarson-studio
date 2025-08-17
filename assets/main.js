@@ -30,30 +30,40 @@ new Vue({
             const hamburger = document.getElementById('hamburger');
             const scrolled = this.scrolled;
 
-            header.classList.toggle('bg-white', scrolled);
-            header.classList.toggle('opacity-90', scrolled);
-            header.classList.toggle('shadow-lg', scrolled);
+            // Usando GSAP para animações
+            gsap.to(header, {
+                backgroundColor: scrolled ? 'rgba(255, 255, 255, 0.9)' : 'rgba(255, 255, 255, 0)',
+                boxShadow: scrolled ? '0 4px 10px rgba(0, 0, 0, 0.1)' : 'none',
+                duration: 0.3
+            });
 
-            branding.classList.toggle('py-4', scrolled);
-            branding.classList.toggle('py-6', !scrolled);
+            gsap.to(branding, {
+                paddingTop: scrolled ? '16px' : '24px',
+                paddingBottom: scrolled ? '16px' : '24px',
+                duration: 0.3
+            });
 
-            brand.classList.toggle('text-2xl', scrolled);
-            brand.classList.toggle('text-3xl', !scrolled);
+            gsap.to(brand, {
+                fontSize: scrolled ? '1.6rem' : '2rem',
+                duration: 0.3
+            });
 
-            hamburger.classList.toggle('scale-100', scrolled);
-            hamburger.classList.toggle('scale-150', !scrolled);
+            gsap.to(hamburger, {
+                scale: scrolled ? 1 : 1.5,
+                duration: 0.3
+            });
         },
         toggleMenu() {
             this.menuOpen = !this.menuOpen;
         },
         showLoader() {
             Loader.loadContent({
-                onProgress: () => {},
-                onComplete: () => {},
-                onError: () => {},
-                onAbort: () => {}
+                onProgress: () => { },
+                onComplete: () => { },
+                onError: () => { },
+                onAbort: () => { }
             });
-        }
+        },
     },
     mounted() {
         let ticking = false;
