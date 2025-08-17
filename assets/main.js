@@ -11,7 +11,7 @@ new Vue({
             return this.scrollY > 50;
         },
         navLinkClass() {
-            return this.scrolled ? 'text-gray-600 hover:text-violet-600' : 'text-gray-400 hover:text-pink-500';
+            return this.scrolled ? 'text-gray-600 hover:text-pink-600' : this.menuOpen ? 'text-gray-400 hover:text-pink-400' : 'text-gray-400 hover:text-pink-500';
         }
     },
     methods: {
@@ -55,7 +55,6 @@ new Vue({
             });
         }
     },
-    // watch: { ... },
     mounted() {
         let ticking = false;
         window.addEventListener('scroll', () => {
