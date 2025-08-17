@@ -38,53 +38,60 @@
     <!-- Custom Styles -->
     <link rel="stylesheet" href="assets/styles.css" />
     <style>
-        * { font-family: 'Inter', sans-serif; }
-        .brand-font { font-family: 'P22Mackinac', serif; }
-
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+    
+        .brand-font {
+            font-family: 'P22Mackinac', serif;
+        }
+    
+    
         @keyframes shine {
             0% {
-                background-position: -200% 0;
-            }
-            100% {
                 background-position: 200% 0;
             }
+    
+            100% {
+                background-position: -200% 0;
+            }
         }
-
-        .hover-animated-card {
+    
+        .hover-gradient-shine {
             position: relative;
             overflow: hidden;
-            transition: transform 0.3s ease;
+            isolation: isolate;
+            transition: transform 0.2s ease-out;
         }
-
-        .hover-animated-card::before {
+    
+        .hover-gradient-shine:hover {
+            transform: scale(1.03);
+        }
+    
+        .hover-gradient-shine::before {
             content: "";
             position: absolute;
+            z-index: -1;
             inset: 0;
-            background: linear-gradient(90deg, #fbcfe8, #d8b4fe, #fbcfe8);
-            background-size: 400% 400%;
-            z-index: 0;
+            background: linear-gradient(
+                90deg,
+                #fef9c3 0%,
+                #fbcfe8 17.5%,
+                #c4b5fd 35%,
+                #c4b5fd 47.5%,
+                #fbcfe8 65%,
+                #fef9c3 100%
+            );
+            background-size: 200% 100%;
             opacity: 0;
             transition: opacity 0.3s ease;
         }
-
-        .hover-animated-card:hover::before {
+    
+        .hover-gradient-shine:hover::before {
             opacity: 1;
-            animation: shine 5s linear infinite;
+            animation: shine 2s linear infinite;
         }
-
-        .hover-animated-card > * {
-            position: relative;
-            z-index: 1;
-        }
-
-        .hover-animated-card:hover .icon-wrapper {
-            background-color: white;
-        }
-
-        .hover-animated-card:hover .icon-wrapper i {
-            color: #7c3aed; /* violetDark */
-        }
-
+    
         .custom-gradient {
             background: linear-gradient(
                 90deg,
@@ -94,7 +101,10 @@
                 #a78bfa 100%
             );
         }
-
+        .custom-gradient:hover {
+            background: none;
+        }
+    
         .backdrop-blur-custom {
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
@@ -178,7 +188,7 @@
                     We craft immersive digital experiences through design, code, and intelligent automation.
                 </p>
                 <button onclick="document.getElementById('services').scrollIntoView({ behavior: 'smooth' })"
-                    class="flex items-center gap-2 bg-violetDark text-white px-6 py-3 rounded-full hover:bg-pink-200 hover:text-violetDark transition duration-300">
+                    class="flex items-center gap-2 hover-gradient-shine custom-gradient text-gray-600 px-6 py-3 rounded-full transition duration-300">
                     Explore Our Services
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 animate-bounce" fill="none"
                         viewBox="0 0 24 24" stroke="currentColor">
