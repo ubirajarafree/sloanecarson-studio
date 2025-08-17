@@ -51,7 +51,14 @@
             content: "";
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, #fbcfe8, #d8b4fe, #c4b5fd, #d8b4fe, #fbcfe8);
+            background: linear-gradient(
+                135deg, 
+                #fbcfe8,
+                #d8b4fe, 
+                #c4b5fd, 
+                #d8b4fe, 
+                #fbcfe8
+            );
             background-size: 400% 400%;
             z-index: 0;
             opacity: 0;
@@ -81,6 +88,16 @@
         .hover-animated-card:hover .icon-wrapper i {
             color: #7c3aed; /* violetDark */
         }
+
+        .custom-gradient {
+            background: linear-gradient(
+                90deg,
+                #fef9c3 0%,
+                #fbcfe8 33%,
+                #c4b5fd 66%,
+                #a78bfa 100%
+            );
+        }
     </style>
 
 </head>
@@ -92,7 +109,7 @@
 
         <!-- Topbar -->
         <nav id="header"
-            class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-gradient-to-r from-pink-200 via-violet-300 to-purple-400 text-white shadow-lg">
+            class="fixed top-0 left-0 w-full z-50 transition-all duration-300 opacity-100 custom-gradient text-white shadow-lg">
             <div id="branding"
                 class="max-w-7xl mx-auto px-4 py-6 flex justify-between items-center transition-all duration-300">
                 <!-- Logo -->

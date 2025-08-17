@@ -34,7 +34,9 @@ new Vue({
             const scrolled = this.scrolled;
 
             header.classList.toggle('bg-white', scrolled);
-            header.classList.toggle('bg-gradient-to-r', !scrolled);
+            header.classList.toggle('custom-gradient', !scrolled);
+            header.classList.toggle('opacity-90', scrolled);
+            header.classList.toggle('opacity-100', !scrolled);
             header.classList.toggle('shadow-lg', scrolled);
             header.classList.toggle('shadow-xl', !scrolled);
 
