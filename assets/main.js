@@ -32,8 +32,7 @@ new Vue({
 
             header.classList.toggle('bg-white', scrolled);
             header.classList.toggle('opacity-90', scrolled);
-            header.classList.toggle('backdrop-blur-custom', scrolled);
-            header.classList.toggle('shadow-xl', scrolled);
+            header.classList.toggle('shadow-lg', scrolled);
 
             branding.classList.toggle('py-4', scrolled);
             branding.classList.toggle('py-6', !scrolled);
