@@ -75,12 +75,11 @@
             inset: 0;
             background: linear-gradient(
                 90deg,
-                #fef9c3 0%,
-                #fbcfe8 17.5%,
-                #c4b5fd 35%,
-                #c4b5fd 47.5%,
-                #fbcfe8 65%,
-                #fef9c3 100%
+                #fef9c3,
+                #fbcfe8,
+                #c4b5fd,
+                #fbcfe8,
+                #fef9c3 
             );
             background-size: 200% 100%;
             opacity: 0;
@@ -89,9 +88,22 @@
     
         .hover-gradient-shine:hover::before {
             opacity: 1;
-            animation: shine 2s linear infinite;
+            animation: shine 3s linear infinite;
         }
-    
+
+        .hover-gradient-shine > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hover-gradient-shine:hover .icon-wrapper {
+            background-color: white;
+        }
+
+        .hover-gradient-shine:hover .icon-wrapper i {
+            color: #7c3aed; /* violetDark */
+        }
+
         .custom-gradient {
             background: linear-gradient(
                 90deg,
@@ -209,7 +221,7 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Card Template -->
                     <div
-                        class="hover-animated-card flex flex-col bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-300 h-full">
+                        class="hover-gradient-shine flex flex-col bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-300 h-full">
                         <div class="icon-wrapper transition-colors duration-1000 flex items-center justify-center w-14 h-14 mb-4 bg-pink-100 rounded-lg">
                             <i class="fas transition-colors duration-1000 fa-code text-violetDark text-xl"></i>
                         </div>
@@ -222,7 +234,7 @@
                     </div>
 
                     <div
-                        class="hover-animated-card flex flex-col bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-300 h-full">
+                        class="hover-gradient-shine flex flex-col bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-300 h-full">
                         <div class="icon-wrapper transition-colors duration-1000 flex items-center justify-center w-14 h-14 mb-4 bg-pink-100 rounded-lg">
                             <i class="fas transition-colors duration-1000 fa-mobile-alt text-violetDark text-xl"></i>
                         </div>
@@ -235,7 +247,7 @@
                     </div>
 
                     <div
-                        class="hover-animated-card flex flex-col bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-300 h-full">
+                        class="hover-gradient-shine flex flex-col bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-300 h-full">
                         <div class="icon-wrapper transition-colors duration-1000 flex items-center justify-center w-14 h-14 mb-4 bg-pink-100 rounded-lg">
                             <i class="fas transition-colors duration-1000 fa-paint-brush text-violetDark text-xl"></i>
                         </div>
@@ -248,7 +260,7 @@
                     </div>
 
                     <div
-                        class="hover-animated-card flex flex-col bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-300 h-full">
+                        class="hover-gradient-shine flex flex-col bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-300 h-full">
                         <div class="icon-wrapper transition-colors duration-1000 flex items-center justify-center w-14 h-14 mb-4 bg-pink-100 rounded-lg">
                             <i class="fas transition-colors duration-1000 fa-pen-nib text-violetDark text-xl"></i>
                         </div>
@@ -261,7 +273,7 @@
                     </div>
 
                     <div
-                        class="hover-animated-card flex flex-col bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-300 h-full">
+                        class="hover-gradient-shine flex flex-col bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-300 h-full">
                         <div class="icon-wrapper transition-colors duration-1000 flex items-center justify-center w-14 h-14 mb-4 bg-pink-100 rounded-lg">
                             <i class="fas transition-colors duration-1000 fa-robot text-violetDark text-xl"></i>
                         </div>
@@ -274,7 +286,7 @@
                     </div>
 
                     <div
-                        class="hover-animated-card flex flex-col bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-300 h-full">
+                        class="hover-gradient-shine flex flex-col bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-300 h-full">
                         <div class="icon-wrapper transition-colors duration-1000 flex items-center justify-center w-14 h-14 mb-4 bg-pink-100 rounded-lg">
                             <i class="fas transition-colors duration-1000 fa-bolt text-violetDark text-xl"></i>
                         </div>
