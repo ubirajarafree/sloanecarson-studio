@@ -41,6 +41,15 @@
         * { font-family: 'Inter', sans-serif; }
         .brand-font { font-family: 'P22Mackinac', serif; }
 
+        @keyframes shine {
+            0% {
+                background-position: -200% 0;
+            }
+            100% {
+                background-position: 200% 0;
+            }
+        }
+
         .hover-animated-card {
             position: relative;
             overflow: hidden;
@@ -51,14 +60,7 @@
             content: "";
             position: absolute;
             inset: 0;
-            background: linear-gradient(
-                135deg, 
-                #fbcfe8,
-                #d8b4fe, 
-                #c4b5fd, 
-                #d8b4fe, 
-                #fbcfe8
-            );
+            background: linear-gradient(90deg, #fbcfe8, #d8b4fe, #fbcfe8);
             background-size: 400% 400%;
             z-index: 0;
             opacity: 0;
@@ -67,13 +69,7 @@
 
         .hover-animated-card:hover::before {
             opacity: 1;
-            animation: gradientLoop 2s linear infinite;
-        }
-
-        @keyframes gradientLoop {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+            animation: shine 5s linear infinite;
         }
 
         .hover-animated-card > * {
