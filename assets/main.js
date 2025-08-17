@@ -14,7 +14,7 @@ new Vue({
         navLinkClass() {
             return {
                 'text-gray-800 hover:text-pink-400': this.scrolled || this.menuOpen,
-                'text-white hover:text-pink-100': !this.scrolled && !this.menuOpen
+                'text-white hover:text-pink-100': !this.scrolled && this.menuOpen
             };
         }
     },
