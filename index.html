@@ -64,7 +64,7 @@
             transition: transform 0.2s ease-out;
         }
     
-        .hover-gradient-shine:hover {
+        .hover-gradient-shine:hover, .hover-scale:hover {
             transform: scale(1.03);
         }
     
@@ -96,11 +96,11 @@
             z-index: 1;
         }
 
-        .hover-gradient-shine:hover .icon-wrapper {
-            background-color: white;
+        .hover-gradient-shine:hover .icon-wrapper, .hover-scale:hover .icon-wrapper {
+            background-color: #5eead4; /* teal 300*/
         }
 
-        .hover-gradient-shine:hover .icon-wrapper i {
+        .hover-gradient-shine:hover .icon-wrapper i, .hover-scale:hover .icon-wrapper i {
             color: #7c3aed; /* violetDark */
         }
 
@@ -198,7 +198,7 @@
                     <span class="text-gray-900">Creative Studio</span>
                     <br class="block lg:hidden">
                     <span
-                        class="bg-gradient-to-r from-pink-400 via-violet-400 to-purple-500 bg-clip-text text-transparent">
+                        class="bg-gradient-to-r from-pink-400 via-teal-400 to-purple-500 bg-clip-text text-transparent">
                         for the Future
                     </span>
                 </h2>
@@ -221,13 +221,13 @@
             <div class="max-w-7xl mx-auto px-6">
                 <h3 class="text-3xl md:text-4xl font-bold text-center mb-12">
                     <span class="text-gray-800">Our</span>
-                    <span class="bg-gradient-to-r from-pink-300 to-violet-500 bg-clip-text text-transparent">Services</span>
+                    <span class="bg-gradient-to-r from-pink-400 via-teal-400 to-purple-500 bg-clip-text text-transparent">Services</span>
                 </h3>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Card Template -->
                     <div
-                        class="hover-gradient-shine flex flex-col bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-300 h-full">
+                        class="hover-scale flex flex-col bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-300 h-full">
                         <div class="icon-wrapper transition-colors duration-1000 flex items-center justify-center w-14 h-14 mb-4 bg-pink-100 rounded-lg">
                             <i class="fas transition-colors duration-1000 fa-code text-violetDark text-xl"></i>
                         </div>
@@ -240,7 +240,7 @@
                     </div>
 
                     <div
-                        class="hover-gradient-shine flex flex-col bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-300 h-full">
+                        class="hover-scale flex flex-col bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-300 h-full">
                         <div class="icon-wrapper transition-colors duration-1000 flex items-center justify-center w-14 h-14 mb-4 bg-pink-100 rounded-lg">
                             <i class="fas transition-colors duration-1000 fa-mobile-alt text-violetDark text-xl"></i>
                         </div>
@@ -253,7 +253,7 @@
                     </div>
 
                     <div
-                        class="hover-gradient-shine flex flex-col bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-300 h-full">
+                        class="hover-scale flex flex-col bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-300 h-full">
                         <div class="icon-wrapper transition-colors duration-1000 flex items-center justify-center w-14 h-14 mb-4 bg-pink-100 rounded-lg">
                             <i class="fas transition-colors duration-1000 fa-paint-brush text-violetDark text-xl"></i>
                         </div>
@@ -266,7 +266,7 @@
                     </div>
 
                     <div
-                        class="hover-gradient-shine flex flex-col bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-300 h-full">
+                        class="hover-scale flex flex-col bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-300 h-full">
                         <div class="icon-wrapper transition-colors duration-1000 flex items-center justify-center w-14 h-14 mb-4 bg-pink-100 rounded-lg">
                             <i class="fas transition-colors duration-1000 fa-pen-nib text-violetDark text-xl"></i>
                         </div>
@@ -279,7 +279,7 @@
                     </div>
 
                     <div
-                        class="hover-gradient-shine flex flex-col bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-300 h-full">
+                        class="hover-scale flex flex-col bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-300 h-full">
                         <div class="icon-wrapper transition-colors duration-1000 flex items-center justify-center w-14 h-14 mb-4 bg-pink-100 rounded-lg">
                             <i class="fas transition-colors duration-1000 fa-robot text-violetDark text-xl"></i>
                         </div>
@@ -292,7 +292,7 @@
                     </div>
 
                     <div
-                        class="hover-gradient-shine flex flex-col bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-300 h-full">
+                        class="hover-scale flex flex-col bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-300 h-full">
                         <div class="icon-wrapper transition-colors duration-1000 flex items-center justify-center w-14 h-14 mb-4 bg-pink-100 rounded-lg">
                             <i class="fas transition-colors duration-1000 fa-bolt text-violetDark text-xl"></i>
                         </div>
@@ -317,8 +317,9 @@
                         <div>
                             <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
                                 Let's Create Something
+                                <br class="block">
                                 <span
-                                    class="block bg-gradient-to-r from-pink-400 via-violet-500 to-purple-600 bg-clip-text text-transparent">
+                                    class="bg-gradient-to-r from-pink-400 via-teal-500 to-purple-500 bg-clip-text text-transparent">
                                     Amazing Together
                                 </span>
                             </h2>
