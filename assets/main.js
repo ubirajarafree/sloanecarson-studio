@@ -44,7 +44,7 @@ new Vue({
             });
 
             gsap.to(brand, {
-                fontSize: scrolled ? '1.6rem' : '2rem',
+                fontSize: scrolled ? '1.3rem' : '1.6rem',
                 duration: 0.3
             });
 
