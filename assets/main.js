@@ -11,9 +11,9 @@ new Vue({
             return this.scrollY > 50;
         },
         navLinkClass() {
-            return this.scrolled ? 'text-teal-500 hover:text-pink-500' : 
-            this.menuOpen ? 'text-teal-500 hover:text-pink-500' : 
-            'text-teal-500 hover:text-pink-500';
+            return this.scrolled ? 'text-teal-500 hover:text-purple-500' : 
+            this.menuOpen ? 'text-sky-500 hover:text-purple-500' : 
+            'text-sky-500 hover:text-purple-500';
         }
     },
     methods: {
