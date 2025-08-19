@@ -32,7 +32,6 @@ new Vue({
             const hamburger = document.getElementById('hamburger');
             const scrolled = this.scrolled;
 
-            // Usando GSAP para animações
             gsap.to(header, {
                 backgroundColor: scrolled ? 'rgba(255, 255, 255, 0.9)' : 'rgba(255, 255, 255, 0)',
                 boxShadow: scrolled ? '0 4px 10px rgba(0, 0, 0, 0.1)' : 'none',
@@ -61,7 +60,15 @@ new Vue({
         showLoader() {
             Loader.loadContent({
                 onProgress: () => { },
-                onComplete: () => { },
+                onComplete: () => {
+                    this.$nextTick(() => {
+                        setTimeout(() => {
+                            if (window.scrollY > 50) {
+                                this.handleScroll();
+                            }
+                        }, 100);
+                    });
+                 },
                 onError: () => { },
                 onAbort: () => { }
             });
