@@ -224,7 +224,7 @@
                 <p class="text-lg md:text-xl text-gray-600 max-w-2xl mb-6">
                     We craft immersive digital experiences through design, code, and intelligent automation.
                 </p>
-                <button onclick="document.getElementById('services').scrollIntoView({ behavior: 'smooth' })"
+                <button @click="scrollToSection('services')"
                     class="flex items-center gap-2 hover-gradient-shine custom-gradient text-gray-600 px-6 py-3 rounded-full transition duration-300">
                     Explore Our Services
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 animate-bounce" fill="none"
