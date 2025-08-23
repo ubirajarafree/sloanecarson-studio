@@ -165,12 +165,19 @@
                 </div>
 
                 <!-- Desktop Menu -->
-                <ul 
-                    class="hidden md:flex space-x-6 font-medium transition-colors duration-300">
-                    <!-- [MODIFICADO] Adicionado o :class binding -->
-                    <li><a href="#hero" class="nav-link" :class="navLinkClass">Home</a></li>
-                    <li><a href="#services" class="nav-link" :class="navLinkClass">Services</a></li>
-                    <li><a href="#contact" class="nav-link" :class="navLinkClass">Contact</a></li>
+                <ul class="hidden md:flex space-x-6 font-medium transition-colors duration-300">
+                    <li>
+                        <a @click.prevent="scrollToSection('hero')" href="#hero" class="nav-link" 
+                            :class="navLinkClass">Home</a>
+                    </li>
+                    <li>
+                        <a @click.prevent="scrollToSection('services')" href="#services" class="nav-link"
+                            :class="navLinkClass">Services</a>
+                    </li>
+                    <li>
+                        <a @click.prevent="scrollToSection('contact')" href="#contact" class="nav-link"
+                            :class="navLinkClass">Contact</a>
+                    </li>
                 </ul>
 
                 <!-- Mobile Menu Button -->
@@ -188,10 +195,18 @@
             <!-- Mobile Menu -->
             <div v-if="menuOpen" class="md:hidden px-4 pb-4 mobile-menu">
                 <ul class="space-y-2 font-medium">
-                    <!-- [MODIFICADO] Links do menu mobile também usam a classe dinâmica -->
-                    <li><a href="#hero" class="block nav-link" :class="navLinkClass">Home</a></li>
-                    <li><a href="#services" class="block nav-link" :class="navLinkClass">Services</a></li>
-                    <li><a href="#contact" class="block nav-link" :class="navLinkClass">Contact</a></li>
+                    <li>
+                        <a @click.prevent="scrollToSection('hero')" href="#hero" class="block nav-link" 
+                            :class="navLinkClass">Home</a>
+                    </li>
+                    <li>
+                        <a @click.prevent="scrollToSection('services')" href="#services" class="block nav-link" 
+                            :class="navLinkClass">Services</a>
+                    </li>
+                    <li>
+                        <a @click.prevent="scrollToSection('contact')" href="#contact" class="block nav-link" 
+                            :class="navLinkClass">Contact</a>
+                    </li>
                 </ul>
             </div>
         </nav>
