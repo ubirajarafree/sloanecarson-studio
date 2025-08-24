@@ -178,6 +178,10 @@
                             :class="navLinkClass">Services</a>
                     </li>
                     <li>
+                        <a @click.prevent="scrollToSection('showcase')" href="#showcase" class="nav-link"
+                            :class="navLinkClass">Showcase</a>
+                    </li>
+                    <li>
                         <a @click.prevent="scrollToSection('contact')" href="#contact" class="nav-link"
                             :class="navLinkClass">Contact</a>
                     </li>
@@ -205,6 +209,10 @@
                     <li>
                         <a @click.prevent="scrollToSection('services')" href="#services" class="block nav-link" 
                             :class="navLinkClass">Services</a>
+                    </li>
+                    <li>
+                        <a @click.prevent="scrollToSection('showcase')" href="#showcase" class="block nav-link" 
+                            :class="navLinkClass">Showcase</a>
                     </li>
                     <li>
                         <a @click.prevent="scrollToSection('contact')" href="#contact" class="block nav-link" 
@@ -389,7 +397,7 @@
         </section>
 
         <!-- Showcase Section -->
-        <section id="services" class="py-40 bg-white">
+        <section id="showcase" class="py-40 bg-white">
             <div class="max-w-7xl mx-auto px-6">
                 <h3 class="text-3xl md:text-4xl font-bold text-center mb-16">
                     <span class="text-gray-800">Project</span>
